@@ -43,7 +43,7 @@ def savings(gross_pay, tax_rate, expenses):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    money_left=gross_pay-(gross_pay*tax_rate//1)-expenses
+    money_left=(gross_pay-(gross_pay*tax_rate)-expenses)//1
     
     return money_left
 
