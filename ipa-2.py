@@ -137,7 +137,7 @@ def shift_by_letter(letter, letter_shift):
         return shift
     
     else:
-        print(" ")
+        return " "
 
 
 # In[38]:
