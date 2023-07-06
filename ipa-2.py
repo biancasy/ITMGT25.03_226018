@@ -56,7 +56,6 @@ def shift_letter(letter, shift):
     else:
         return " "
 
-print(shift_letter(" ",2))
 
 
 # In[14]:
