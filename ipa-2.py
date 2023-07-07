@@ -270,6 +270,8 @@ def scytale_cipher(message, shift):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     order_list=[]
+    answer=""
+    new_answer=""
     
     if len(message)%shift==0:
         for index,letter in enumerate(message):
@@ -278,7 +280,9 @@ def scytale_cipher(message, shift):
         #print(order_list)
         
         for number in order_list:
-            print(message[number],end="")
+            new_letter=(message[number])
+            answer+=new_letter
+        return answer
         
     else:
         remainder=len(message)%shift
@@ -290,7 +294,9 @@ def scytale_cipher(message, shift):
         #print(order_list)
         
         for number in order_list:
-            print(new_message[number],end="")        
+            new_letter_2=(new_message[number]) 
+            new_answer+=new_letter_2
+        return new_answer        
 
 
 # In[50]:
