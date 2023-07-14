@@ -286,34 +286,28 @@ def eta(first_stop, second_stop, route_map):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     routes=list(route_map.keys())
-    time_taken=list(route_map.values())
-
-    desired_pair=(first_stop,second_stop)
+    total_time=0
+    start_point=first_stop
     
     if first_stop==second_stop:
         return 0
 
-    for i,pairs in enumerate(routes):
+    for i in routes:
         
-        if desired_pair==pairs:
-            final_time_1=time_taken[i]["travel_time_mins"]
-            return(final_time_1)
+        if (first_stop,second_stop)==i:
+            return route_map[first_stop,second_stop]['travel_time_mins']
         
-        if desired_pair!=pairs:
-            
-            for i_2,pair_2 in enumerate(routes):
+    for i in routes:
                 
-                if pair_2[0]==desired_pair[0]:
-                    final_time_2=time_taken[i_2]["travel_time_mins"]
-                    break
-            
-            for i_3,pair_3 in enumerate(routes):
-                if pair_3[1]==desired_pair[1]:
-                    final_time_3=time_taken[i_3]["travel_time_mins"]
-                    break
-                
-            sum_of_final_times=final_time_2+final_time_3
-            return(sum_of_final_times)
+        if i[0]==first_stop:
+            start_index=routes.index(i) 
+    
+    while start_point!=second_stop:
+        if routes[start_index][0]==start_point:
+            total_time+=route_map[routes[start_index]]['travel_time_mins']
+            start_point=routes[start_index][1]
+        start_index=(start_index+1)%len(routes)
+    return total_time
 
 
 # In[ ]:
